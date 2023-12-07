@@ -15,7 +15,7 @@ export function IteratorTest() {
 
     return (
         <div data-testid="iterator-container">
-            <p>All users:{' '}
+            <div>All users:{' '}
                 {
                     userList.map((user: User) => {
                         if (user.email === currentUser?.email) {
@@ -29,12 +29,12 @@ export function IteratorTest() {
                         }
                     })
                 }
-            </p>
+            </div>
             {loading ? ('Loading...') : (
                 <div>Current user:{' '}{currentUser?.email}</div>
             )}
             {error && (<div>{error}</div>)}
-            <button style={{background: 'grey', color: 'white', padding: '20px'}}
+            <button data-testid="next-btn" style={{background: 'grey', color: 'white', padding: '20px'}}
                 onClick={() => next()}
             >
                 Next
