@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
+import {screen, render} from '@testing-library/react';
 
 import { App } from '../app';
 
 test('renders app component', () => {
-  const { container, getByRole } = render(<App />);
+  const { container } = render(<App />);
 
-  expect(getByRole('main')).toBeInTheDocument();
+  expect(screen.getByTestId('iterator-container')).toBeInTheDocument();
   expect(container).toMatchSnapshot();
 });

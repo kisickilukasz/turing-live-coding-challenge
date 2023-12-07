@@ -4,13 +4,14 @@ import { App } from '../app';
 const rootMock = {
   render: jest.fn(),
 };
-
 jest.mock('react-dom/client', () => ({
   createRoot: jest.fn(() => rootMock),
 }));
 
+
 describe('Root DOM', () => {
   test('renders App', () => {
+
     const root = document.createElement('div');
     root.id = 'root';
     document.body.append(root);

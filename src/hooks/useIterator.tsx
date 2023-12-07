@@ -12,6 +12,7 @@ export function useIterator(url: string) {
     const [userList, setUserList] = useState<User[]>([]);
     const [currentUser, setCurrentUser] = useState<User | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string>()
 
     const fetchUsers = async () => {
         setLoading(true)
@@ -21,7 +22,7 @@ export function useIterator(url: string) {
             setUserList([...userList, ...data.results])
             setCurrentUser(data.results[0])
         } catch (e) {
-            throw new Error('Failed to fetch users')
+            setError('Users could not be fetched!!')
         } finally {
             setLoading(false)
         }
@@ -33,9 +34,7 @@ export function useIterator(url: string) {
 
     const next = () => {
         const indexOfTheCurrentUser = userList.findIndex((user) => user.id.value === currentUser?.id.value);
-        console.log(indexOfTheCurrentUser);
         const nextUser = userList[indexOfTheCurrentUser + 1];
-        console.log('nextUser: ', nextUser);
         return Boolean(nextUser) ? setCurrentUser(nextUser) : fetchUsers()
     }
 
@@ -45,5 +44,5 @@ export function useIterator(url: string) {
         setCurrentUser(previousUser)
     }
 
-    return { userList, currentUser, next, loading, previous }
+    return { userList, currentUser, next, loading, previous, error }
 }

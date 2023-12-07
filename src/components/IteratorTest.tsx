@@ -5,17 +5,16 @@ export function IteratorTest() {
     const {
         userList,
         currentUser,
-        next,
         loading,
-        previous
-        // previous,
-        // next,
+        previous,
+        next,
+        error,
     } = useIterator(
         'https://randomuser.me/api'
     )
 
     return (
-        <div>
+        <div data-testid="iterator-container">
             <p>All users:{' '}
                 {
                     userList.map((user: User) => {
@@ -34,6 +33,7 @@ export function IteratorTest() {
             {loading ? ('Loading...') : (
                 <div>Current user:{' '}{currentUser?.email}</div>
             )}
+            {error && (<div>{error}</div>)}
             <button style={{background: 'grey', color: 'white', padding: '20px'}}
                 onClick={() => next()}
             >

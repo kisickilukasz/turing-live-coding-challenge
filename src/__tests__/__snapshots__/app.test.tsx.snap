@@ -3,33 +3,29 @@
 exports[`renders app component 1`] = `
 <div>
   <div
-    class="app"
-    role="main"
+    data-testid="iterator-container"
   >
-    <header
-      class="app-header"
+    <p>
+      All users:
+       
+    </p>
+    <div>
+      Current user:
+       
+    </div>
+    <div>
+      Users could not be fetched!!
+    </div>
+    <button
+      style="background: grey; color: white; padding: 20px;"
     >
-      <img
-        alt="logo"
-        class="app-logo"
-        src="test-file-stub"
-      />
-      <p>
-        Edit 
-        <code>
-          src/app.tsx
-        </code>
-         and save to reload.
-      </p>
-      <a
-        class="app-link"
-        href="https://reactjs.org"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Learn React
-      </a>
-    </header>
+      Next
+    </button>
+    <button
+      style="background: grey; color: blue; padding: 20px;"
+    >
+      Previous
+    </button>
   </div>
 </div>
 `;

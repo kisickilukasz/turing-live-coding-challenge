@@ -1,5 +1,6 @@
 module.exports = {
     verbose: true,
+    clearMocks: true,
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     moduleNameMapper: {
